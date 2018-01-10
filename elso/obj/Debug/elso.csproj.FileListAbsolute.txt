@@ -1,0 +1,6 @@
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\bin\Debug\elso.exe.config
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\bin\Debug\elso.exe
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\bin\Debug\elso.pdb
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\obj\Debug\elso.csprojResolveAssemblyReference.cache
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\obj\Debug\elso.exe
+C:\Users\filep\Desktop\suli\really_end\mm\elso\elso\obj\Debug\elso.pdb
