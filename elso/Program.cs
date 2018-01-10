@@ -227,69 +227,100 @@ namespace elso
                 talal = 0;
                 eub = true;
                 evb = false;
+                int[] euh = new int[U];
+                int[] evh = new int[V];
+                bool? tali = null;
+                int eh;
                 for (int i = 0; i < T; i++)
                 {
-                    if (eub)
+                    for (int q = 0; q < U; q++)
                     {
-                        if ((eu + U) <= L)
+                        if (eub)
                         {
-                            eu += U;
+                            if ((eu + 1) < L)
+                            {
+                                eu++;
+                                euh[q] = eu;
+                            }
+                            else
+                            {
+                                eu = L;
+                                eub = false;
+                                euh[q] = eu;
+                            }
+
                         }
                         else
                         {
-                            int plus = (eu + U) - L;
-                            eu = L;
-                            eu = L - plus;
-                            eub = false;
+                            if ((eu - 1) > 1)
+                            {
+                                eu--;
+                                euh[q] = eu;
+                            }
+                            else
+                            {
+                                eu = 1;
+                                eub = true;
+                                euh[q] = eu;
+                            }
                         }
-                    }
-                    else
-                    {
-                        if ((eu - U) > 1)
+
+                        if (evb)
                         {
-                            eu -= U;
+                            if ((ev + 1) < L)
+                            {
+                                ev++;
+                                evh[q] = ev;
+                            }
+                            else
+                            {
+                                ev = L;
+                                evb = false;
+                                evh[q] = ev;
+                            }
+
                         }
                         else
                         {
-                            eu = 1;
-                            eub = true;
+                            if ((ev - 1) > 1)
+                            {
+                                ev--;
+                                evh[q] = ev;
+                            }
+                            else
+                            {
+                                ev = 1;
+                                evb = true;
+                                evh[q] = ev;
+                            }
+                        }
+                        Console.WriteLine("{0} {1} {2}", i, evh[q], euh[q]);
+                        if (tali == null)
+                        {
+                            eh = evh[q] - euh[q];
+                            if (eh < 0)
+                            {
+                                tali = true;
+                            }
+                            else
+                            {
+                                tali = false;
+                            }
+                        }
+                        else if (tali == true && evh[q] - euh[q] >= 0)
+                        {
+                            Console.WriteLine("TALÁLKOZTAK+++");
+                            tali = false;
+                            talal++;
+                        }
+                        else if (tali == false && evh[q] - euh[q] <= 0)
+                        {
+                            Console.WriteLine("TALÁLKOZTAK---");
+                            tali = true;
+                            talal++;
                         }
                     }
 
-                    if (evb)
-                    {
-                        if ((ev + V) <= L)
-                        {
-                            ev += V;
-                        }
-                        else
-                        {
-                            int plus = (ev + V) - L;
-                            ev = L;
-                            ev = L - plus;
-                            evb = false;
-                        }
-                    }
-                    else
-                    {
-                        if ((ev - V) > 1)
-                        {
-                            ev -= V;
-                        }
-                        else
-                        {
-                            ev = 1;
-                            evb = true;
-                        }
-                    }
-
-                    if (ev == eu)
-                    {
-                        talal++;
-                        //Console.WriteLine("Itt találkoztak: {0} és ekkor {1}",ev, i);
-                    }
-                    //Console.WriteLine("{0} {1}", i, eu);
-                    //Console.WriteLine("{0} {1}", i, ev);
                 }
                 Console.WriteLine("Összesen találkoztak {0} darabszor", talal);
             }
@@ -716,8 +747,8 @@ namespace elso
             //napok();
             //nap();
             //szamlal();
-            tort();
-            //eger();
+            //tort();
+            eger();
             //fejviras();
             //koszon();
             //legnagy();
